@@ -1,0 +1,137 @@
+<?xml version="1.0" encoding="utf-8"?>
+<search>
+  
+  
+  
+  <entry>
+    <title>PHP-CGI、FastCGI与PHP-FPM区别</title>
+    <link href="/2025/01/03/20250104-php-cgi/"/>
+    <url>/2025/01/03/20250104-php-cgi/</url>
+    
+    <content type="html"><![CDATA[]]></content>
+    
+    
+    <categories>
+      
+      <category>PHP</category>
+      
+      <category>PHP-FPM</category>
+      
+      <category>PHP-CGI</category>
+      
+      <category>FastCGI</category>
+      
+    </categories>
+    
+    
+    <tags>
+      
+      <tag>PHP-FPM</tag>
+      
+      <tag>FastCGI</tag>
+      
+      <tag>PHP-CGI</tag>
+      
+    </tags>
+    
+  </entry>
+  
+  
+  
+  <entry>
+    <title>PHP-FPM和Swoole区别</title>
+    <link href="/2025/01/03/20250103-php-fpm-swoole/"/>
+    <url>/2025/01/03/20250103-php-fpm-swoole/</url>
+    
+    <content type="html"><![CDATA[<h2 id="运行环境"><a href="#运行环境" class="headerlink" title="运行环境"></a>运行环境</h2><p><strong>PHP-FPM</strong>：PHP-FPM 基于请求-响应模型。每当有 HTTP 请求到达时，Web 服务器会启动一个 PHP-FPM 进程来处理这个请求，处理完后该进程会结束。因为不是常驻内存，每个请求都会启动新的进程，因此可能会导致更高的启动延迟。</p><p><strong>Swoole</strong>：由于 Swoole 常驻内存，能够有效减少请求处理的启动开销，提升性能。</p>]]></content>
+    
+    
+    <categories>
+      
+      <category>PHP</category>
+      
+      <category>PHP-FPM</category>
+      
+      <category>Swoole</category>
+      
+    </categories>
+    
+    
+    <tags>
+      
+      <tag>PHP</tag>
+      
+      <tag>PHP-FPM</tag>
+      
+      <tag>Swoole</tag>
+      
+    </tags>
+    
+  </entry>
+  
+  
+  
+  <entry>
+    <title>Yii2的请求处理</title>
+    <link href="/2025/01/02/20250102-php-yii-request-handle/"/>
+    <url>/2025/01/02/20250102-php-yii-request-handle/</url>
+    
+    <content type="html"><![CDATA[<p>每一次 Yii 应用开始处理 HTTP 请求时，它都会进行一个近似的流程。</p><ol><li>用户提交指向 <a href="https://www.yiiframework.com/doc/guide/2.0/zh-cn/structure-entry-scripts">入口脚本</a> <code>web/index.php</code> 的请求。</li><li>入口脚本会加载 <a href="https://www.yiiframework.com/doc/guide/2.0/zh-cn/concept-configurations">配置数组</a> 并创建一个 <a href="https://www.yiiframework.com/doc/guide/2.0/zh-cn/structure-applications">应用</a> 实例用于处理该请求。</li><li>应用会通过 <a href="https://www.yiiframework.com/doc/guide/2.0/zh-cn/runtime-requests">request（请求）</a> 应用组件 解析被请求的 <a href="https://www.yiiframework.com/doc/guide/2.0/zh-cn/runtime-routing">路由</a>。</li><li>应用创建一个 <a href="https://www.yiiframework.com/doc/guide/2.0/zh-cn/structure-controllers">controller（控制器）</a> 实例具体处理请求。</li><li>控制器会创建一个 <a href="https://www.yiiframework.com/doc/guide/2.0/zh-cn/structure-controllers">action（动作）</a> 实例并为该动作执行相关的 Filters（访问过滤器）。</li><li>如果任何一个过滤器验证失败，该动作会被取消。</li><li>如果全部的过滤器都通过，该动作就会被执行。</li><li>动作会加载一个数据模型，一般是从数据库中加载。</li><li>动作会渲染一个 View（视图），并为其提供所需的数据模型。</li><li>渲染得到的结果会返回给 <a href="https://www.yiiframework.com/doc/guide/2.0/zh-cn/runtime-responses">response（响应）</a> 应用组件。</li><li>响应组件会把渲染结果发回给用户的浏览器。</li></ol><p>下面的示意图展示了应用是如何处理一个请求的。</p><p><img src="/2025/01/02/20250102-php-yii-request-handle/request.png" alt="request.png"></p>]]></content>
+    
+    
+    <categories>
+      
+      <category>PHP</category>
+      
+      <category>Yii</category>
+      
+    </categories>
+    
+    
+    <tags>
+      
+      <tag>PHP</tag>
+      
+      <tag>Yii</tag>
+      
+    </tags>
+    
+  </entry>
+  
+  
+  
+  <entry>
+    <title>ThinkPHP和Yii2的区别</title>
+    <link href="/2025/01/02/20250102-php-yii-tp/"/>
+    <url>/2025/01/02/20250102-php-yii-tp/</url>
+    
+    <content type="html"><![CDATA[<p>参考资料：<a href="https://www.yiichina.com/doc/guide/2.0">Yii2中文文档</a> <a href="https://www.thinkphp.cn/doc">ThinkPHP中文文档</a></p><h2 id="从框架设计理念上"><a href="#从框架设计理念上" class="headerlink" title="从框架设计理念上"></a>从框架设计理念上</h2><p><strong>Yii</strong>：定义是一个高性能，基于组件的PHP框架，采用严格的OOP编写，将程序拆分为可重用的组件，使得代码更易于维护和扩展</p><p><strong>ThinkPHP</strong>：宗旨是简化开发、提高效率、易于扩展，是旨在提供简单易用的开发体验，适合用于中小项目的开发</p><p>More info: <a href="https://hexo.io/docs/writing.html">Writing</a></p><h2 id="从配置上"><a href="#从配置上" class="headerlink" title="从配置上"></a>从配置上</h2><p><strong>Yii</strong>：多重配置文件，覆盖配置，多重环境配置 ，分本地线上环境配置 ，更加灵活；</p><p><strong>ThinkPHP</strong>：相对而言，配置选项较少，通常只有一种主要配置方法。虽然也支持不同环境的配置，但灵活性和复杂度上不如 Yii。</p><h2 id="脚手架"><a href="#脚手架" class="headerlink" title="脚手架"></a>脚手架</h2><p><strong>Yii 的 Gii</strong>：Gii 是 Yii 提供的强大代码生成工具，可以快速生成模型、控制器和 CRUD 操作。这确实可以显著减少开发时间和降低错误率。</p><p><strong>ThinkPHP</strong>：虽然也有一些生成代码的工具，但相较于 Yii 的 Gii 功能，可能不够强大和灵活。</p><p>More info: <a href="https://hexo.io/docs/generating.html">Generating</a></p><h2 id="GET-与-POST"><a href="#GET-与-POST" class="headerlink" title="GET 与 POST"></a>GET 与 POST</h2><p><strong>Yii</strong>：通常采用更为简洁的方式处理 GET 和 POST 请求，强调一致性和简洁性。参数获取主要通过 <code>Yii::$app-&gt;request</code> 进行。</p><p><strong>ThinkPHP</strong>：在参数获取上提供了多种方式，灵活性较高，可以通过多种方式获取请求参数（如使用 <code>input()</code> 函数等）。</p><h2 id="验证层"><a href="#验证层" class="headerlink" title="验证层"></a>验证层</h2><p><strong>Yii</strong>：通过模型的规则（rules）进行验证，这是一种结构化且集中管理的方式，便于维护和扩展。</p><p><strong>ThinkPHP</strong>：使用单独的验证类进行验证，虽然功能强大，但在某些情况下可能会导致验证逻辑分散。</p><h2 id="ORM"><a href="#ORM" class="headerlink" title="ORM"></a>ORM</h2><p><strong>Yii 的 ORM</strong>：通常采用数组的方式进行查询，更加规范化，但在某些情况下可能不如 ThinkPHP 灵活。</p><ul><li>使用原生 SQL 字符串</li></ul><figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><code class="hljs php"><span class="hljs-keyword">use</span> <span class="hljs-title">app</span>\\<span class="hljs-title">models</span>\\<span class="hljs-title">User</span>;<br><br><span class="hljs-comment">// 查询状态为 &#x27;active&#x27; 且年龄大于 18 的用户</span><br><span class="hljs-variable">$users</span> = <span class="hljs-title class_">User</span>::<span class="hljs-title function_ invoke__">find</span>()<br>    -&gt;<span class="hljs-title function_ invoke__">where</span>(<span class="hljs-string">&#x27;status = :status AND age &gt; :age&#x27;</span>, [<span class="hljs-string">&#x27;:status&#x27;</span> =&gt; <span class="hljs-string">&#x27;active&#x27;</span>, <span class="hljs-string">&#x27;:age&#x27;</span> =&gt; <span class="hljs-number">18</span>])<br>    -&gt;<span class="hljs-title function_ invoke__">all</span>();<br></code></pre></td></tr></table></figure><ul><li>结合使用数组和原生条件</li></ul><figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs php"><span class="hljs-variable">$users</span> = <span class="hljs-title class_">User</span>::<span class="hljs-title function_ invoke__">find</span>()<br>    -&gt;<span class="hljs-title function_ invoke__">where</span>([<span class="hljs-string">&#x27;status&#x27;</span> =&gt; <span class="hljs-string">&#x27;active&#x27;</span>]) <span class="hljs-comment">// 使用数组条件</span><br>    -&gt;<span class="hljs-title function_ invoke__">andWhere</span>(<span class="hljs-string">&#x27;age &gt; :age&#x27;</span>, [<span class="hljs-string">&#x27;:age&#x27;</span> =&gt; <span class="hljs-number">18</span>]) <span class="hljs-comment">// 使用原生 SQL 条件</span><br>    -&gt;<span class="hljs-title function_ invoke__">all</span>();<br></code></pre></td></tr></table></figure><ul><li>使用 IN 条件</li></ul><figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs php"><span class="hljs-variable">$users</span> = <span class="hljs-title class_">User</span>::<span class="hljs-title function_ invoke__">find</span>()<br>    -&gt;<span class="hljs-title function_ invoke__">where</span>([<span class="hljs-string">&#x27;status&#x27;</span> =&gt; <span class="hljs-string">&#x27;active&#x27;</span>]) <span class="hljs-comment">// 使用数组条件</span><br>    -&gt;<span class="hljs-title function_ invoke__">andWhere</span>(<span class="hljs-string">&#x27;age &gt; :age&#x27;</span>, [<span class="hljs-string">&#x27;:age&#x27;</span> =&gt; <span class="hljs-number">18</span>]) <span class="hljs-comment">// 使用原生 SQL 条件</span><br>    -&gt;<span class="hljs-title function_ invoke__">all</span>();<br></code></pre></td></tr></table></figure><ul><li>复杂查询也可以用字符串，但整体美观不如数组</li></ul><figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><code class="hljs php"><span class="hljs-variable">$users</span> = <span class="hljs-title class_">User</span>::<span class="hljs-title function_ invoke__">find</span>()<br>    -&gt;<span class="hljs-title function_ invoke__">where</span>(<span class="hljs-string">&#x27;status = :status AND (age &lt; :age OR email LIKE :email)&#x27;</span>, [<br>        <span class="hljs-string">&#x27;:status&#x27;</span> =&gt; <span class="hljs-string">&#x27;active&#x27;</span>,<br>        <span class="hljs-string">&#x27;:age&#x27;</span> =&gt; <span class="hljs-number">30</span>,<br>        <span class="hljs-string">&#x27;:email&#x27;</span> =&gt; <span class="hljs-string">&#x27;%example.com&#x27;</span><br>    ])<br>    -&gt;<span class="hljs-title function_ invoke__">all</span>();<br></code></pre></td></tr></table></figure><p><strong>ThinkPHP 的 ORM</strong>：确实提供了更灵活的方式，可以使用字符串或数组进行查询，适应不同开发者的习惯。</p><ul><li>使用字符串构建查询</li></ul><figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><code class="hljs php"><span class="hljs-keyword">use</span> <span class="hljs-title">app</span>\\<span class="hljs-title">model</span>\\<span class="hljs-title">User</span>;<br><br><span class="hljs-comment">// 查询状态为 &#x27;active&#x27; 的用户</span><br><span class="hljs-variable">$users</span> = <span class="hljs-title class_">User</span>::<span class="hljs-title function_ invoke__">where</span>(<span class="hljs-string">&#x27;status = ?&#x27;</span>, <span class="hljs-string">&#x27;active&#x27;</span>)-&gt;<span class="hljs-title function_ invoke__">select</span>();<br><br><span class="hljs-comment">// 查询邮箱包含 &#x27;example.com&#x27; 的用户</span><br><span class="hljs-variable">$users</span> = <span class="hljs-title class_">User</span>::<span class="hljs-title function_ invoke__">where</span>(<span class="hljs-string">&#x27;email LIKE ?&#x27;</span>, <span class="hljs-string">&#x27;%example.com%&#x27;</span>)-&gt;<span class="hljs-title function_ invoke__">select</span>();<br></code></pre></td></tr></table></figure><ul><li>使用数组构建查询</li></ul><figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><code class="hljs php"><span class="hljs-keyword">use</span> <span class="hljs-title">app</span>\\<span class="hljs-title">model</span>\\<span class="hljs-title">User</span>;<br><br><span class="hljs-comment">// 查询多个条件</span><br><span class="hljs-variable">$users</span> = <span class="hljs-title class_">User</span>::<span class="hljs-title function_ invoke__">where</span>([<br>    <span class="hljs-string">&#x27;status&#x27;</span> =&gt; <span class="hljs-string">&#x27;active&#x27;</span>,<br>    <span class="hljs-string">&#x27;age&#x27;</span> =&gt; [<span class="hljs-string">&#x27;&gt;&#x27;</span>, <span class="hljs-number">18</span>]<br>])-&gt;<span class="hljs-title function_ invoke__">select</span>();<br><br><span class="hljs-comment">// 查询多个条件，使用数组方式组合</span><br><span class="hljs-variable">$users</span> = <span class="hljs-title class_">User</span>::<span class="hljs-title function_ invoke__">where</span>(<span class="hljs-string">&#x27;status&#x27;</span>, <span class="hljs-string">&#x27;active&#x27;</span>)<br>             -&gt;<span class="hljs-title function_ invoke__">where</span>(<span class="hljs-string">&#x27;age&#x27;</span>, <span class="hljs-string">&#x27;&gt;&#x27;</span>, <span class="hljs-number">18</span>)<br>             -&gt;<span class="hljs-title function_ invoke__">select</span>();<br></code></pre></td></tr></table></figure><ul><li>组合使用</li></ul><figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><code class="hljs php"><span class="hljs-keyword">use</span> <span class="hljs-title">app</span>\\<span class="hljs-title">model</span>\\<span class="hljs-title">User</span>;<br><br><span class="hljs-comment">// 组合条件查询</span><br><span class="hljs-variable">$users</span> = <span class="hljs-title class_">User</span>::<span class="hljs-title function_ invoke__">where</span>(<span class="hljs-string">&#x27;status = ?&#x27;</span>, <span class="hljs-string">&#x27;active&#x27;</span>)<br>             -&gt;<span class="hljs-title function_ invoke__">where</span>([<span class="hljs-string">&#x27;age&#x27;</span> =&gt; [<span class="hljs-string">&#x27;&gt;&#x27;</span>, <span class="hljs-number">18</span>], <span class="hljs-string">&#x27;gender&#x27;</span> =&gt; <span class="hljs-string">&#x27;female&#x27;</span>])<br>             -&gt;<span class="hljs-title function_ invoke__">select</span>();<br></code></pre></td></tr></table></figure>]]></content>
+    
+    
+    <categories>
+      
+      <category>PHP</category>
+      
+      <category>Yii</category>
+      
+      <category>ThinkPHP</category>
+      
+    </categories>
+    
+    
+    <tags>
+      
+      <tag>PHP</tag>
+      
+      <tag>Yii</tag>
+      
+      <tag>ThinkPHP</tag>
+      
+    </tags>
+    
+  </entry>
+  
+  
+  
+  
+</search>
